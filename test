@@ -1,0 +1,19 @@
+Install pandas and sqlite3
+pip install pandas openpyxl sqlite3
+
+# Python script to convert Excel to SQLite
+python -c "
+import pandas as pd
+import sqlite3
+
+# Read Excel file
+df = pd.read_excel('yourfile.xlsx')
+
+# Create SQLite connection
+conn = sqlite3.connect('database.db')
+
+# Write to SQLite
+df.to_sql('your_table_name', conn, if_exists='replace', index=False)
+
+conn.close()
+"
